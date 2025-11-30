@@ -4,6 +4,8 @@ import { LearnMoreBtn, WorkWithUsBtn } from "./utils/Buttons";
 import Image from "next/image.js";
 import Link from "next/link";
 import PriceDropdown from "./interactive/PriceDropdown";
+import FAQDropDown from "./interactive/FAQ";
+import Footer from "./utils/Footer";
 
 const IMAGES = [
   "/CourierLogos/DHL.png",
@@ -303,15 +305,15 @@ export default function LandingPage() {
 
       {/* SECTION 3 - How it Works */}
       <section className={`px-20 overflow-clip py-15 relative h-180 w-full ${colours.background_hero}`}>
-        <div className="absolute z-0 top-30 right-40 w-[420px] h-[320px] rounded-full bg-[#1e81e3] blur-[40px] opacity-50"></div>
-        <div className="absolute z-0 top-70 left-40 w-[350px] h-[400px] rounded-full bg-[#033465] blur-[40px] opacity-50"></div>
-        <div className="absolute z-0 -bottom-50 right-40 w-[600px] h-[300px] rounded-full bg-[#06498b] blur-[40px] opacity-50"></div>
+        <div className="absolute z-0 top-30 right-40 w-[420px] h-[320px] rounded-full bg-[#1e81e3] blur-[60px] opacity-50"></div>
+        <div className="absolute z-0 top-70 left-40 w-[350px] h-[400px] rounded-full bg-[#033465] blur-[60px] opacity-50"></div>
+        <div className="absolute z-0 -bottom-50 right-40 w-[600px] h-[300px] rounded-full bg-[#06498b] blur-[60px] opacity-50"></div>
 
         <div className="flex z-10 relative justify-between items-center">
           <div>
             <p className="font-bold text-[#0088FF] text-[27px] mb-2">How it works</p>
             <p className="font-bold text-white text-[55px]"><span className="italic">Simple, </span><br />Intuitive & quick.</p>
-            <div className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-19 py-1.5 rounded-[10px] flex items-center gap-2">
+            <div className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-14 py-1.5 rounded-[10px] flex items-center gap-2">
               <p className="font-semibold">See full process</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -420,7 +422,7 @@ export default function LandingPage() {
       </section>
 
       {/* SECTION 4 - Pricing Section */}
-      <section className="px-20 py-15 bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)] overflow-clip relative h-auto">
+      <section className="px-20 pt-15 pb-8 bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)] overflow-clip relative h-auto">
         <div className="relative z-10">
           <p className="text-[#001121] font-bold text-[60px]">Simple, Transparent Pricing</p>
           <p className="text-[#001121] italic text-[18px] mt-5">Each plan includes all listed features</p>
@@ -438,14 +440,58 @@ export default function LandingPage() {
               />
             </svg>
           </div>
+
+
           <div className="mt-7">
             <PriceDropdown />
           </div>
+          <p className="text-[#013058] font-bold  pt-17 text-right text-[15px]">Pause or cancel anytime. No setup fees. No long-term contracts.</p>
+
         </div>
-        <div className="absolute z-1 blur-[40px] top-70 w-[760px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[320px] rounded-full bg-black "></div>
-        <div className="absolute z-1 blur-[40px] left-15 bottom-5 w-[900px] bg-[radial-gradient(circle,#0057A3,#fff)] h-[200px] rounded-full bg-black "></div>
-        <div className="absolute z-0 blur-[40px] right-0 top-55 w-[1000px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[800px] rounded-full bg-black "></div>
+        <div className="absolute z-1 blur-[40px] top-70 w-[760px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[400px] rounded-full bg-black "></div>
+        <div className="absolute z-1 blur-[40px] left-0 bottom-18 w-[1000px] bg-[radial-gradient(circle,#0057A3,#fff)] h-[180px] rounded-full bg-black "></div>
+        <div className="absolute z-0 blur-[40px] -right-10 top-80 w-[1000px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[590px] rounded-full bg-black "></div>
       </section>
-    </main >
+
+      {/* SECTION 5 - CTA */}
+      <section className="w-full px-20 py-15 h-auto">
+        <div className="grid grid-rows-1 grid-cols-[80%_20%] border rounded-[12px] px-10 py-7 border-[#cecece]">
+          <div className="py-3">
+            <p className="font-bold text-[#001121] text-[40px]">2 Week Free Trial</p>
+            <p className="text-[#001121] text-[13px] mt-1">No credit card required</p>
+          </div>
+          <div className="flex items-center border border-[#cecece] duration-100 hover:border-[#9c9c9c] h-fit w-fit px-4 py-2 rounded-[10px] justify-self-end mt-auto gap-2 cursor-pointer">
+            <p className="font-semibold">Contact Page</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="6 5 16 12"
+            >
+              <path
+                fill="currentColor"
+                d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6 - FAQs */}
+      <section className="w-full  px-20 py-15 items-center grid grid-cols-2">
+        <div className="w-fit mx-auto mb-auto">
+          <p className="font-semibold text-[50px] leading-15">Frequently Asked<br />Questions</p>
+          <p className="text-[17px] mt-3.5">Answers to common questions</p>
+          <div className="mt-16 bg-[#0088FF] hover:bg-[#027be5] duration-100 px-3.5 py-1 w-fit rounded-[10px]">
+            <Link href="#contact" className="text-white font-semibold text-[17px]">Contact Sales</Link>
+          </div>
+        </div>
+        <div>
+          <FAQDropDown />
+        </div>
+      </section>
+
+      <Footer type={0} />
+    </main  >
   )
 }

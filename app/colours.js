@@ -7,7 +7,7 @@ export const colours = {
   dark_blue_accent_1: "#001121",
 
   // Light Blue Accents
-  light_blue_accent_1: "#d4eaff",
-  light_blue_accent_2: "#E5F2FF",
+  light_blue_accent_1: "#c5e3ff",
+  light_blue_accent_2: "#c0e0ff",
   light_blue_accent_3: "#C5E2FF",
 }
