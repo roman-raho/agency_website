@@ -987,7 +987,7 @@ export default function HowItWorks() {
 
           {/* CTA shared for both */}
           <motion.div
-            className="flex flex-col items-center justify-center mt-16"
+            className="flex flex-col items-center justify-center mt-22"
             variants={{
               hidden: { opacity: 0, y: 20 },
               show: {
@@ -1022,7 +1022,7 @@ export default function HowItWorks() {
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-14 sm:mt-20 w-[90%] sm:w-[80%] lg:w-[60%] h-[1px] bg-black/15"
+            className="mx-auto mt-28 sm:mt-32 w-[90%] sm:w-[80%] lg:w-[60%] h-[1px] bg-black/15"
             variants={{
               hidden: { opacity: 0, y: 10 },
               show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
