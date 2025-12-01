@@ -186,7 +186,7 @@ export default function Header({ pageType }: { pageType: number }) {
             <Link
               key={link.id}
               href={link.href}
-              className={`text-[14px] lg:text-[16px] font-semibold transition-colors ${activeTab !== link.id ? "text-[#001121]" : "text-[#001121]/70"
+              className={`text-[14px] lg:text-[16px] font-semibold transition-colors ${activeTab !== link.id ? "text-[#001121]" : "text-[#001121]/40"
                 } hover:text-[#001121]/70`}
             >
               {link.label}
@@ -284,7 +284,7 @@ export default function Header({ pageType }: { pageType: number }) {
             <Link
               key={link.id}
               href={link.href}
-              className={`text-[14px] lg:text-[16px] font-semibold transition-colors ${activeTab !== link.id ? "text-[#001121]" : "text-[#001121]/70"
+              className={`text-[14px] lg:text-[16px] font-semibold transition-colors ${activeTab !== link.id ? "text-[#001121]" : "text-[#001121]/40"
                 } hover:text-[#001121]/70`}
             >
               {link.label}

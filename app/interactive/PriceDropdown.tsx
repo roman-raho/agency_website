@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type PlanId = "starter" | "growth" | "scaling" | "enterprise";
 
@@ -43,31 +44,61 @@ export default function PriceDropdown() {
   const [open, setOpen] = useState<PlanId | null>("starter");
 
   return (
-    <div className="relative w-full mx-auto space-y-9 text-white">
+    <motion.div
+      className="relative w-full mx-auto space-y-4 md:space-y-8 lg:space-y-9 text-white"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.5,
+            staggerChildren: 0.12,
+          },
+        },
+      }}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       {PLANS.map((plan) => {
         const isOpen = open === plan.id;
 
         return (
-          <div
+          <motion.div
             key={plan.id}
-            className="w-full rounded-2xl bg-black/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
+            variants={{
+              hidden: { opacity: 0, y: 25 },
+              show: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.45,
+                },
+              },
+            }}
+            className="w-full rounded-xl lg:rounded-2xl bg-black/4 backdrop-blur-xl border border-white/60 md:border-white transition-all duration-300 overflow-hidden"
           >
             {/* clickable header */}
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : plan.id)}
-              className="w-full flex items-center justify-between px-7 py-1 cursor-pointer"
+              className="w-full flex items-center justify-between px-4 py-2 sm:px-6 sm:py-3 lg:px-7 lg:py-4 cursor-pointer"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span
                   className={`flex items-center justify-center transition-transform duration-300 ${isOpen ? "rotate-90" : ""
                     }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
                     viewBox="0 0 24 24"
+                    className="
+                      w-8 h-8
+                      sm:w-10 sm:h-10
+                      md:w-14 md:h-14
+                      lg:w-[100px] lg:h-[100px] /* original size on desktop */
+                    "
                   >
                     <path
                       fill="none"
@@ -80,30 +111,40 @@ export default function PriceDropdown() {
                   </svg>
                 </span>
 
-                <span className="text-[60px] font-bold tracking-[2px]">
+                <span className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-bold tracking-[2px]">
                   {plan.name}
                 </span>
               </div>
 
-              <span className="text-[30px] font-semibold text-white/90">
+              {/* Range in header only on medium+ screens */}
+              <span className="hidden md:inline text-[20px] md:text-[24px] lg:text-[30px] font-semibold text-white/90">
                 {plan.range}
               </span>
             </button>
 
             {/* expanding body *inside* glass panel */}
             <div
-              className={`transition-all duration-300 ${isOpen ? "max-h-[400px] opacity-100 py-4 px-35" : "max-h-0 opacity-0 px-35"
+              className={`transition-all duration-300 ${isOpen
+                  ? "max-h-[400px] opacity-100 py-3 px-4 sm:px-6 lg:py-4 lg:px-35"
+                  : "max-h-0 opacity-0 px-4 sm:px-6 lg:px-35"
                 }`}
             >
-              <p className="text-[17px] text-white">{plan.blurb}</p>
+              {/* Range moves into body on small screens */}
+              <p className="md:hidden text-[14px] sm:text-[15px] text-white/80 mb-2">
+                {plan.range}
+              </p>
 
-              <p className="mt-2 text-[30px] font-semibold text-white">
+              <p className="text-[15px] sm:text-[16px] md:text-[17px] text-white">
+                {plan.blurb}
+              </p>
+
+              <p className="mt-2 text-[22px] sm:text-[24px] md:text-[26px] lg:text-[30px] font-semibold text-white">
                 {plan.price}
               </p>
             </div>
-          </div>
+          </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

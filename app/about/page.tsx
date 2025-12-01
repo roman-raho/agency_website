@@ -1,23 +1,45 @@
+"use client"
+
 import Footer from "../utils/Footer";
 import Header from "../utils/Header";
+import { motion } from "framer-motion"
 
 export default function AboutPage() {
   return (
     <main>
       <Header pageType={1}></Header>
 
-      <section className="w-full px-6 md:px-20 pt-30 pb-24 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Heading */}
-          <h2 className="text-[45px] md:text-[60px] font-semibold text-[#001121]">
+      <motion.section
+        className="w-full px-6 sm:px-10 md:px-20 pt-24 md:pt-30 pb-20 md:pb-24 bg-white"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          show: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.15 },
+          },
+        }}
+      >
+        {/* Heading + intro */}
+        <motion.div
+          className="max-w-3xl mx-auto text-center"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+          }}
+        >
+          <h2 className="text-[32px] sm:text-[40px] md:text-[60px] font-semibold text-[#001121]">
             About the Founder
           </h2>
-          <p className="mt-2 text-[14px] md:text-[15px] text-[#5a5a5a]">
+          <p className="mt-2 text-[13px] sm:text-[14px] md:text-[15px] text-[#5a5a5a]">
             Built for watch brands by a founder who&apos;s lived the shipping chaos.
           </p>
 
           {/* Intro paragraph */}
-          <p className="mt-8 text-center text-[15px] leading-7 text-[#222222]">
+          <p className="mt-8 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
             I started this after running my own watch microbrand, shipping Seiko mods and small-batch
             releases to customers around the world. I dealt with every problem you&apos;re facing now —
             delays with no explanation, customs holds, missing scans, damaged parcels, and anxious
@@ -25,27 +47,39 @@ export default function AboutPage() {
             I built the system I always wished existed: a structured, calm way to manage the messy side
             of shipping so founders can focus on building their brand, not chasing couriers.
           </p>
-        </div>
+        </motion.div>
 
         {/* Experience Highlights */}
-        <div className="max-w-3xl mx-auto mt-10">
-          <h3 className="text-[18px] font-semibold text-[#001121] mb-3">
+        <motion.div
+          className="max-w-3xl mx-auto mt-10"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+          }}
+        >
+          <h3 className="text-[17px] md:text-[18px] font-semibold text-[#001121] mb-3">
             Experience Highlights
           </h3>
-          <ul className="list-disc pl-6 space-y-2 text-[15px] leading-7 text-[#222222]">
+          <ul className="list-disc pl-6 space-y-2 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
             <li>Shipped internationally to over 20 countries</li>
             <li>Managed hundreds of courier issues directly</li>
             <li>Learned escalation systems through real-world experience</li>
             <li>Built structured workflows that now power this service</li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* How I Work */}
-        <div className="max-w-3xl mx-auto mt-10">
-          <h3 className="text-[18px] font-semibold text-[#001121] mb-3">
+        <motion.div
+          className="max-w-3xl mx-auto mt-10"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+          }}
+        >
+          <h3 className="text-[17px] md:text-[18px] font-semibold text-[#001121] mb-3">
             How I Work
           </h3>
-          <ul className="list-disc pl-6 space-y-2 text-[15px] leading-7 text-[#222222]">
+          <ul className="list-disc pl-6 space-y-2 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
             <li>
               <span className="font-semibold">Clarity —</span> Every issue gets a structured, transparent update
             </li>
@@ -56,28 +90,40 @@ export default function AboutPage() {
               <span className="font-semibold">Consistency —</span> Daily checks, follow-ups, and no forgotten cases
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Why I Built this Service */}
-        <div className="max-w-3xl mx-auto mt-10 text-left">
-          <h3 className="text-[18px] font-semibold text-[#001121] mb-3 text-center">
+        <motion.div
+          className="max-w-3xl mx-auto mt-10 text-left"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+          }}
+        >
+          <h3 className="text-[17px] md:text-[18px] font-semibold text-[#001121] mb-3 text-center">
             Why I Built this Service
           </h3>
-          <p className="text-[15px] leading-7 text-[#222222]">
+          <p className="text-[14px] sm:text-[15px] leading-7 text-[#222222]">
             I built this because founders shouldn&apos;t have to spend hours each week chasing couriers or
             calming anxious customers. Lost parcels, customs holds, returns, delays, and vague tracking
             updates can overwhelm small teams fast. This service exists to take that entire burden off
             your plate — giving watch brands a predictable, reliable partner who handles shipping
             problems quietly and professionally in the background.
           </p>
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="max-w-3xl mx-auto mt-14 text-center">
-          <h3 className="text-[40px] md:text-[48px] font-semibold text-[#001121] mb-10">
+        <motion.div
+          className="max-w-3xl mx-auto mt-16 md:mt-22 text-center"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+          }}
+        >
+          <h3 className="text-[40px] sm:text-[50px] md:text-[60px] font-semibold text-[#001121] mb-8 md:mb-10">
             Ready to get Started?
           </h3>
-          <button className="flex gap-2 mx-auto items-center justify-center px-4 py-1 border border-[#001121] rounded-[10px] text-[16px] font-semibold text-[#001121] hover:bg-[#001121] hover:text-white transition">
+          <button className="flex gap-2 mx-auto items-center justify-center px-4 py-1 border border-[#001121]/40 rounded-[10px] text-[15px] md:text-[16px] font-semibold text-[#001121] hover:bg-[#001121] hover:text-white transition">
             Contact Sales
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,8 +137,9 @@ export default function AboutPage() {
               />
             </svg>
           </button>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
+
 
       <Footer type={0}></Footer>
 

@@ -35,10 +35,10 @@ export default function FAQDropDown() {
   const [openId, setOpenId] = useState<FaqId | null>("q1");
 
   return (
-    <section className="w-full max-w-2xl space-y-5">
+    <section className="w-fit max-w-2xl mx-auto lg:mx-0 space-y-4 flex flex-col items-center lg:items-start sm:space-y-5">
       <div className="flex items-center gap-2">
-        <span className="text-xl">📚</span>
-        <h2 className="text-xl font-semibold text-neutral-900">
+        <span className="text-lg sm:text-xl">📚</span>
+        <h2 className="text-lg sm:text-xl font-semibold text-neutral-900">
           Service and Operations
         </h2>
       </div>
@@ -48,28 +48,50 @@ export default function FAQDropDown() {
           const isOpen = openId === item.id;
 
           return (
-            <div key={item.id} className="pl-12.5">
+            <div
+              key={item.id}
+              className="
+    pl-0 sm:pl-6 lg:pl-12.5
+    mx-auto
+  "
+            >
               <button
                 type="button"
                 onClick={() => setOpenId(isOpen ? null : item.id)}
-                className="flex w-full items-center gap-4.5 text-left hover:text-neutral-900"
+                className="flex w-full items-center gap-3 sm:gap-4.5 text-left hover:text-neutral-900"
               >
-                {/* icon – same size, no scaling */}
-                <span className={`flex h-6 w-6 items-center justify-center text-base text-[#7b7b7b] ${isOpen ? "" : "-rotate-45"} transition-transform duration-200`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 21">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m8 8l4 4m0 0l4 4m-4-4l4-4m-4 4l-4 4" />
+                {/* icon */}
+                <span
+                  className={`flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center text-base text-[#7b7b7b] ${isOpen ? "" : "-rotate-45"
+                    } transition-transform duration-200`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 21"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                      d="m8 8l4 4m0 0l4 4m-4-4l4-4m-4 4l-4 4"
+                    />
                   </svg>
                 </span>
 
                 {/* question */}
-                <span className="flex-1 text-[15px] font-medium text-neutral-900">
+                <span className="flex-1 text-[14px] sm:text-[15px] font-medium text-neutral-900">
                   {item.question}
                 </span>
               </button>
 
               {/* animated answer */}
               <div
-                className={`pl-10.5 pr-2 text-sm leading-relaxed text-neutral-500 transition-all duration-300 ease-out overflow-hidden ${isOpen ? "max-h-32 opacity-100 mt-1" : "max-h-0 opacity-0 mt-0"
+                className={`pl-9 sm:pl-11.5 pr-2 text-[13px] sm:text-sm text-leftleading-relaxed text-neutral-500 transition-all duration-300 ease-out overflow-hidden ${isOpen
+                  ? "max-h-[220px] opacity-100 mt-1"
+                  : "max-h-0 opacity-0 mt-0"
                   }`}
               >
                 {item.answer}

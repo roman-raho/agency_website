@@ -544,8 +544,7 @@ export default function LandingPage() {
 
 
       {/* SECTION 3 - How it Works */}
-      <section
-        className={`relative w-full overflow-clip px-8 sm:px-14 lg:px-20 py-12 lg:py-15 ${colours.background_hero}`}
+      <section className={`relative w-full overflow-clip px-8 sm:px-14 lg:px-20 py-11 lg:py-15 ${colours.background_hero}`}
       >
         {/* BG blobs – unchanged, no motion */}
         <div className="absolute z-0 top-16 md:top-24 lg:top-30 right-0 md:right-20 lg:right-40 w-[260px] md:w-[360px] lg:w-[420px] h-[220px] md:h-[280px] lg:h-[320px] rounded-full bg-[#1e81e3] blur-[60px] opacity-50" />
@@ -696,19 +695,52 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ADD MOTION SECTION 4 - Pricing Section */}
+      <section
+        className="
+    px-8 sm:px-14 lg:px-20
+    pt-8 lg:pt-15 pb-8
+    bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)]
+    overflow-clip relative h-auto
+  "
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.15 },
+            },
+          }}
+          className="relative z-10"
+        >
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="text-[#001121] font-bold text-[40px] lg:text-[60px]"
+          >
+            Simple, Transparent Pricing
+          </motion.p>
 
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="text-[#001121] italic text-[16px] md:text-[18px] mt-3 md:mt-5"
+          >
+            Each plan includes all listed features
+          </motion.p>
 
-      {/* SECTION 4 - Pricing Section */}
-      <section className="hidden px-20 pt-15 pb-8 bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)] overflow-clip relative h-auto">
-        <div className="relative z-10">
-          <p className="text-[#001121] font-bold text-[60px]">Simple, Transparent Pricing</p>
-          <p className="text-[#001121] italic text-[18px] mt-5">Each plan includes all listed features</p>
-          <div className="text-[#001121] flex justify-end mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100">
-            <p className="font-bold text-[18px]">Full Pricing Details</p>
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="text-[#001121] flex justify-end mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100"
+          >
+            <p className="font-bold text-[16px] md:text-[18px]">Full Pricing Details</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
+              width="14"
+              height="14"
               viewBox="6 5 16 12"
             >
               <path
@@ -716,57 +748,185 @@ export default function LandingPage() {
                 d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
               />
             </svg>
-          </div>
+          </motion.div>
 
-
-          <div className="mt-7">
+          <div
+            className="mt-7"
+          >
             <PriceDropdown />
           </div>
-          <p className="text-[#013058] font-bold  pt-17 text-right text-[15px]">Pause or cancel anytime. No setup fees. No long-term contracts.</p>
 
-        </div>
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="text-[#013058] font-bold pt-10 md:pt-14 lg:pt-17 text-right text-[13px] md:text-[15px]"
+          >
+            Pause or cancel anytime. No setup fees. No long-term contracts.
+          </motion.p>
+        </motion.div>
+
+        {/* BG BLOBS (STATIC – CAN MOTION IF YOU WANT) */}
         <div className="absolute z-1 blur-[40px] top-70 w-[760px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[400px] rounded-full bg-black "></div>
         <div className="absolute z-1 blur-[40px] left-0 bottom-18 w-[1000px] bg-[radial-gradient(circle,#0057A3,#fff)] h-[180px] rounded-full bg-black "></div>
         <div className="absolute z-0 blur-[40px] -right-10 top-80 w-[1000px] bg-[radial-gradient(circle,#289BFF,#fff)] h-[590px] rounded-full bg-black "></div>
       </section>
 
-      {/* SECTION 5 - CTA */}
-      <section className="hidden w-full px-20 py-15 h-auto">
-        <div className="grid grid-rows-1 grid-cols-[80%_20%] border rounded-[12px] px-10 py-7 border-[#cecece]">
-          <div className="py-3">
-            <p className="font-bold text-[#001121] text-[40px]">2 Week Free Trial</p>
-            <p className="text-[#001121] text-[13px] mt-1">No credit card required</p>
-          </div>
-          <div className="flex items-center border border-[#cecece] duration-100 hover:border-[#9c9c9c] h-fit w-fit px-4 py-2 rounded-[10px] justify-self-end mt-auto gap-2 cursor-pointer">
-            <p className="font-semibold">Contact Page</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="6 5 16 12"
+      {/* ADD MOTION SECTION 5 - CTA */}
+      <section className="w-full px-6 sm:px-10 lg:px-20 py-10 lg:py-15 h-auto">
+        <motion.div
+          className="
+      grid
+      grid-cols-1
+      md:grid-cols-[70%_30%]
+      gap-4
+      border
+      rounded-[12px]
+      px-6
+      sm:px-8
+      lg:px-10
+      py-5
+      lg:py-7
+      border-[#cecece]
+    "
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+                ease: "easeOut",
+                staggerChildren: 0.12,
+              },
+            },
+          }}
+        >
+          <motion.div
+            className="py-1 lg:py-3"
+            variants={{
+              hidden: { opacity: 0, y: 15 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+            }}
+          >
+            <p className="font-bold text-[#001121] text-[24px] sm:text-[30px] lg:text-[40px]">
+              2 Week Free Trial
+            </p>
+            <p className="text-[#001121] text-[12px] sm:text-[13px] mt-1">
+              No credit card required
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="flex items-center md:justify-end"
+            variants={{
+              hidden: { opacity: 0, y: 15 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+            }}
+          >
+            <div
+              className="
+          flex items-center
+          border border-[#cecece]
+          duration-100 hover:border-[#9c9c9c]
+          h-fit
+          w-full md:w-fit
+          justify-center md:justify-self-end
+          px-4 py-2
+          rounded-[10px]
+          gap-2
+          cursor-pointer
+        "
             >
-              <path
-                fill="currentColor"
-                d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-              />
-            </svg>
-          </div>
-        </div>
+              <p className="font-semibold text-[14px] sm:text-[15px]">Contact Page</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="6 5 16 12"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                />
+              </svg>
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
+
+
       {/* SECTION 6 - FAQs */}
-      <section className="hidden w-full  px-20 py-15 items-center grid grid-cols-2">
-        <div className="w-fit mx-auto mb-auto">
-          <p className="font-semibold text-[50px] leading-15">Frequently Asked<br />Questions</p>
-          <p className="text-[17px] mt-3.5">Answers to common questions</p>
-          <div className="mt-16 bg-[#0088FF] hover:bg-[#027be5] duration-100 px-3.5 py-1 w-fit rounded-[10px]">
-            <Link href="#contact" className="text-white font-semibold text-[17px]">Contact Sales</Link>
+      <section
+        className="
+    w-full
+    px-6 sm:px-10 lg:px-20
+    py-10 lg:py-15
+    grid
+    grid-cols-1 lg:grid-cols-2
+    items-center
+    gap-10
+  "
+      >
+        <div className="w-full lg:w-fit mx-auto lg:mx-auto mb-auto text-center lg:text-left">
+          <p
+            className="
+        font-semibold
+        leading-15
+        text-[32px] sm:text-[40px] lg:text-[50px]
+      "
+          >
+            Frequently Asked
+            <br />
+            Questions
+          </p>
+          <p className="text-[15px] sm:text-[16px] lg:text-[17px] mt-3.5">
+            Answers to common questions
+          </p>
+          <div
+            className="
+        hidden lg:block mt-10 sm:mt-12 lg:mt-16
+        bg-[#0088FF] hover:bg-[#027be5] duration-100
+        px-3.5 py-1
+        w-fit
+        mx-auto lg:mx-0
+        rounded-[10px]
+      "
+          >
+            <Link
+              href="#contact"
+              className="text-white font-semibold text-[15px] sm:text-[16px] lg:text-[17px]"
+            >
+              Contact Sales
+            </Link>
           </div>
         </div>
-        <div>
+
+        <div className="">
           <FAQDropDown />
         </div>
+        <div
+          className="
+        lg:hidden mt-10 sm:mt-12 lg:mt-16
+        bg-[#0088FF] hover:bg-[#027be5] duration-100
+        px-3.5 py-1
+        w-fit
+        mx-auto lg:mx-0
+        rounded-[10px]
+      "
+        >
+          <Link
+            href="#contact"
+            className="text-white font-semibold text-[15px] sm:text-[16px] lg:text-[17px]"
+          >
+            Contact Sales
+          </Link>
+        </div>
+
       </section>
+
       <div>
         <Footer type={0} />
       </div>
