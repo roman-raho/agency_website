@@ -134,15 +134,15 @@ export default function LandingPage() {
                 </span> watch brands worldwide
               </p>
             </div>
-            <p className="font-semibold mt-2 xs:mt-3 md:mt-3 text-white 
-            text-[24px] xxs:text-[26px] text-center lg:text-left
+            <p className="font-semibold mt-2  xxs:mt-3 md:mt-3 text-white 
+            text-[24px] xxs:text-[30px] text-center lg:text-left
             xs:text-[30px] md:text-[42px] md:tracking-[0px] lg:text-[39px] xl:text-[42px] -tracking-[1px]  leading-tight">
               Managing the messy side <br />of watch<span className="hidden md:inline-block">-brand</span> shipping
             </p>
             <p className="font-light hidden lg:block mt-2 text-[#e8e8e8] text-[12px] lg:text-[14px]">
               Built by a watch microbrand founder who shipped internatioanally.
             </p>
-            <p className="md:hidden lg:block leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xs:mt-2 md:mt-4 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
+            <p className="md:hidden lg:block leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xxs:mt-2 md:mt-4 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
               We handle everything that can go wrong <br />after your watches ship - from customs <br />seizures to lost parcels<span className="hidden md:inline"> alongside <br />operational work: filing claims, chasing <br />couriers, updating customers, and more.</span>
             </p>
 
@@ -533,7 +533,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
               >
-                <Link href="#about" className="font-semibold text-[15px] sm:text-[16px] md:text-[17px]">
+                <Link href="/about" className="font-semibold text-[15px] sm:text-[16px] md:text-[17px]">
                   Read More...
                 </Link>
               </motion.div>
@@ -573,26 +573,28 @@ export default function LandingPage() {
               <br />
               Intuitive & quick.
             </p>
-            <motion.div
-              className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-7 md:mt-9 lg:mt-14 py-1.5 rounded-[10px] flex items-center gap-2"
-              whileHover={{ y: -2, boxShadow: "0 10px 24px rgba(0,0,0,0.25)" }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
-            >
-              <p className="font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
-                See full process
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="15"
-                viewBox="6 5 16 12"
+            <Link href="/how-it-works">
+              <motion.div
+                className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-7 md:mt-9 lg:mt-14 py-1.5 rounded-[10px] flex items-center gap-2"
+                whileHover={{ y: -2, boxShadow: "0 10px 24px rgba(0,0,0,0.25)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
               >
-                <path
-                  fill="currentColor"
-                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-                />
-              </svg>
-            </motion.div>
+                <p className="font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
+                  See full process
+                </p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  viewBox="6 5 16 12"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                  />
+                </svg>
+              </motion.div>
+            </Link>
           </motion.div>
 
           <motion.p
@@ -732,23 +734,25 @@ export default function LandingPage() {
             Each plan includes all listed features
           </motion.p>
 
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            className="text-[#001121] flex justify-end mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100"
-          >
-            <p className="font-bold text-[16px] md:text-[18px]">Full Pricing Details</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="6 5 16 12"
+          <Link href="/pricing">
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+              className="text-[#001121] flex justify-end mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100"
             >
-              <path
-                fill="currentColor"
-                d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-              />
-            </svg>
-          </motion.div>
+              <p className="font-bold text-[16px] md:text-[18px]">Full Pricing Details</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="6 5 16 12"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                />
+              </svg>
+            </motion.div>
+          </Link>
 
           <div
             className="mt-7"
@@ -818,16 +822,17 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            className="flex items-center md:justify-end"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-            }}
-          >
-            <div
-              className="
-          flex items-center
+          <Link className='md:mt-auto' href="/contact">
+            <motion.div
+              className="flex items-center md:justify-end"
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+              }}
+            >
+              <div
+                className="
+              flex items-center
           border border-[#cecece]
           duration-100 hover:border-[#9c9c9c]
           h-fit
@@ -837,22 +842,24 @@ export default function LandingPage() {
           rounded-[10px]
           gap-2
           cursor-pointer
-        "
-            >
-              <p className="font-semibold text-[14px] sm:text-[15px]">Contact Page</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="6 5 16 12"
+          "
               >
-                <path
-                  fill="currentColor"
-                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-                />
-              </svg>
-            </div>
-          </motion.div>
+                <p className="font-semibold text-[14px] sm:text-[15px]">Contact Page</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="6 5 16 12"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                  />
+                </svg>
+              </div>
+            </motion.div>
+          </Link>
+
         </motion.div>
       </section>
 
@@ -874,12 +881,11 @@ export default function LandingPage() {
           <p
             className="
         font-semibold
-        leading-15
+        leading-10 sm:leading-15
         text-[32px] sm:text-[40px] lg:text-[50px]
       "
           >
             Frequently Asked
-            <br />
             Questions
           </p>
           <p className="text-[15px] sm:text-[16px] lg:text-[17px] mt-3.5">
@@ -896,7 +902,7 @@ export default function LandingPage() {
       "
           >
             <Link
-              href="#contact"
+              href="/contact"
               className="text-white font-semibold text-[15px] sm:text-[16px] lg:text-[17px]"
             >
               Contact Sales
@@ -918,7 +924,7 @@ export default function LandingPage() {
       "
         >
           <Link
-            href="#contact"
+            href="/contact"
             className="text-white font-semibold text-[15px] sm:text-[16px] lg:text-[17px]"
           >
             Contact Sales

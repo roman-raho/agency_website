@@ -81,7 +81,11 @@ export default function ContactPage() {
               we will answer your questions and
               can help you book a call if needed.
             </p>
-            <Link href="#">
+            <Link
+              href="https://wa.me/message/N2HI2EGESWBDE1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="flex mt-6 sm:mt-8 ml-1 sm:ml-2 items-center gap-2 text-white font-semibold bg-[#007bff] w-fit py-1 rounded-[9px] px-4">
                 <p>Text us</p>
                 <svg
@@ -136,7 +140,7 @@ export default function ContactPage() {
               answer any of your questions or help
               book your call.
             </p>
-            <Link href="#">
+            <Link href="mailto:support@romanlogistics.co.uk">
               <div className="flex mt-6 sm:mt-8 ml-1 sm:ml-2 items-center gap-2 text-white font-semibold bg-[#007bff] w-fit py-1 rounded-[9px] px-4">
                 <p>Email us</p>
                 <svg

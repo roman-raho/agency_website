@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 type PlanId = "starter" | "growth" | "scaling" | "enterprise";
 
@@ -44,39 +43,13 @@ export default function PriceDropdown() {
   const [open, setOpen] = useState<PlanId | null>("starter");
 
   return (
-    <motion.div
-      className="relative w-full mx-auto space-y-4 md:space-y-8 lg:space-y-9 text-white"
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            staggerChildren: 0.12,
-          },
-        },
-      }}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <div className="relative w-full mx-auto space-y-4 md:space-y-8 lg:space-y-9 text-white">
       {PLANS.map((plan) => {
         const isOpen = open === plan.id;
 
         return (
-          <motion.div
+          <div
             key={plan.id}
-            variants={{
-              hidden: { opacity: 0, y: 25 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.45,
-                },
-              },
-            }}
             className="w-full rounded-xl lg:rounded-2xl bg-black/4 backdrop-blur-xl border border-white/60 md:border-white transition-all duration-300 overflow-hidden"
           >
             {/* clickable header */}
@@ -142,9 +115,9 @@ export default function PriceDropdown() {
                 {plan.price}
               </p>
             </div>
-          </motion.div>
+          </div>
         );
       })}
-    </motion.div>
+    </div>
   );
 }

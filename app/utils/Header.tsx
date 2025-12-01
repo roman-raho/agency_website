@@ -36,7 +36,7 @@ export default function Header({ pageType }: { pageType: number }) {
   if (pageType !== 0 && pageType !== 1 && pageType !== 2) return null;
 
   if (pageType === 0) return (
-    <div className="flex z-10 relative flex-col md:absolute top-0 md:top-5 lg:top-5.5 left-0 w-full px-6 ">
+    <div className="flex z-40 relative flex-col md:absolute top-0 md:top-5 lg:top-5.5 left-0 w-full px-6">
       {/* my-[22px] */}
       {/* Logo */}
       <Link href="/" className="absolute z-1 
@@ -134,7 +134,7 @@ export default function Header({ pageType }: { pageType: number }) {
   )
 
   if (pageType === 1) return (
-    <div className="flex flex-col md:absolute top-8 md:top-5 lg:top-5.5 left-0 w-full px-6 ">
+    <div className="flex z-40 relative flex-col md:absolute top-0 md:top-5 lg:top-5.5 left-0 w-full px-6">
       {/* my-[22px] */}
       {/* Logo */}
       <Link href="/" className="absolute z-1 
@@ -232,7 +232,7 @@ export default function Header({ pageType }: { pageType: number }) {
   )
 
   if (pageType === 2) return (
-    <div className="flex flex-col md:absolute top-8 md:top-5 lg:top-5.5 left-0 w-full px-6 ">
+    <div className="flex z-40 relative flex-col md:absolute top-0 md:top-5 lg:top-5.5 left-0 w-full px-6">
       {/* my-[22px] */}
       {/* Logo */}
       <Link href="/" className="absolute z-1 
@@ -256,7 +256,7 @@ export default function Header({ pageType }: { pageType: number }) {
       <AnimatePresence>
         {dropdownOpen && (
           <motion.nav
-            className="absolute md:hidden flex flex-col gap-1.5 left-0 pl-11 pt-19 pb-10 z-0 top-0 w-full bg-[#fefefe] h-auto"
+            className="absolute md:hidden flex flex-col gap-1.5 left-0 pl-11 pt-19 pb-10 top-0 w-full bg-[#fefefe] h-auto"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}

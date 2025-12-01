@@ -68,7 +68,7 @@ export default function HowItWorks() {
             height={49}
             alt={"Roman Logistics Logo"}
           />
-          <Link href="/#contact" className="flex items-center gap-2">
+          <Link href="/contact" className="flex items-center gap-2">
             <p className="font-semibold text-[14px] sm:text-[15px]">Contact Sales</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1003,7 +1003,7 @@ export default function HowItWorks() {
             <p className="text-[14px] md:text-[15px] tracking-[0.5px] text-[#454545] text-center">
               Get rid of your shipping burden today.
             </p>
-            <Link href="/#contact">
+            <Link href="/contact">
               <div className="mt-10 sm:mt-12 w-fit px-3 flex items-center gap-2 py-1 bg-[#0088ff] rounded-[10px] text-white">
                 <p className="font-semibold text-[14px] sm:text-[16px]">Book a call</p>
                 <svg

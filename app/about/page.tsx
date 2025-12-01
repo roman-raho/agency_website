@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import Footer from "../utils/Footer";
 import Header from "../utils/Header";
 import { motion } from "framer-motion"
@@ -113,31 +114,33 @@ export default function AboutPage() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          className="max-w-3xl mx-auto mt-16 md:mt-22 text-center"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-          }}
-        >
-          <h3 className="text-[40px] sm:text-[50px] md:text-[60px] font-semibold text-[#001121] mb-8 md:mb-10">
-            Ready to get Started?
-          </h3>
-          <button className="flex gap-2 mx-auto items-center justify-center px-4 py-1 border border-[#001121]/40 rounded-[10px] text-[15px] md:text-[16px] font-semibold text-[#001121] hover:bg-[#001121] hover:text-white transition">
-            Contact Sales
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="6 6 16 12"
-            >
-              <path
-                fill="currentColor"
-                d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-              />
-            </svg>
-          </button>
-        </motion.div>
+        <Link href="/contact">
+          <motion.div
+            className="max-w-3xl mx-auto mt-16 md:mt-22 text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+            }}
+          >
+            <h3 className="text-[40px] sm:text-[50px] md:text-[60px] font-semibold text-[#001121] mb-8 md:mb-10">
+              Ready to get Started?
+            </h3>
+            <button className="flex gap-2 mx-auto items-center justify-center px-4 py-1 border border-[#001121]/40 rounded-[10px] text-[15px] md:text-[16px] font-semibold text-[#001121] hover:bg-[#001121] hover:text-white transition">
+              Contact Sales
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="6 6 16 12"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                />
+              </svg>
+            </button>
+          </motion.div>
+        </Link>
       </motion.section>
 
 

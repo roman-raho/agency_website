@@ -4,6 +4,7 @@ import Header from '../utils/Header'
 import Footer from '../utils/Footer'
 import PriceDropdown from '../interactive/PriceDropdown'
 import { motion } from "framer-motion"
+import Link from 'next/link';
 
 export default function PricingPage() {
   return (
@@ -58,48 +59,50 @@ export default function PricingPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            className="flex items-center md:justify-end"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-            }}
-          >
-            <div
-              className="
-          flex items-center
-          border border-[#cecece]
-          duration-100 hover:border-[#9c9c9c]
-          h-fit
-          w-full md:w-fit
-          justify-center md:justify-self-end
-          px-4 py-2
-          rounded-[10px]
-          gap-2
-          cursor-pointer
-        "
+          <Link className='md:mt-auto' href="/contact">
+            <motion.div
+              className="flex items-center md:justify-end"
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+              }}
             >
-              <p className="font-semibold text-[14px] sm:text-[15px]">Contact Page</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="6 5 16 12"
+              <div
+                className="
+              flex items-center
+              border border-[#cecece]
+              duration-100 hover:border-[#9c9c9c]
+              h-fit
+              w-full md:w-fit
+              justify-center md:justify-self-end
+              px-4 py-2
+              rounded-[10px]
+              gap-2
+              cursor-pointer
+              "
               >
-                <path
-                  fill="currentColor"
-                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-                />
-              </svg>
-            </div>
-          </motion.div>
+                <p className="font-semibold text-[14px] sm:text-[15px]">Contact Page</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="6 5 16 12"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                  />
+                </svg>
+              </div>
+            </motion.div>
+          </Link>
         </motion.div>
       </section>
 
       {/* SECTION 2 - Pricing Details */}
 
       <motion.section
-        className="px-6 sm:px-10 lg:px-20 xl:px-25 pb-8 lg:pb-12 bg-transparent overflow-x-clip relative h-auto"
+        className="px-6 sm:px-10 lg:px-20 xl:px-25 pb-8 lg:pb-12 bg-transparent overflow-x-clip h-auto relative"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -127,28 +130,30 @@ export default function PricingPage() {
             Each plan includes all listed features
           </p>
 
-          <motion.div
-            className="text-[#001121] flex justify-end mt-6 sm:mt-7 lg:mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-            }}
-          >
-            <p className="font-bold text-[14px] sm:text-[16px] lg:text-[18px]">
-              Contact sales
-            </p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="6 5 16 12"
+          <Link href="/contact">
+            <motion.div
+              className="text-[#001121] flex justify-end mt-6 sm:mt-7 lg:mt-9 items-center gap-2 cursor-pointer hover:text-[#001121]/85 transition-100"
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+              }}
             >
-              <path
-                fill="currentColor"
-                d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
-              />
-            </svg>
-          </motion.div>
+              <p className="font-bold text-[14px] sm:text-[16px] lg:text-[18px]">
+                Contact sales
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="6 5 16 12"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
+                />
+              </svg>
+            </motion.div>
+          </Link>
 
           <div
             className="mt-5 sm:mt-6 lg:mt-7"
@@ -177,7 +182,7 @@ export default function PricingPage() {
       {/* SECTION 3 - Detailed overview of plans */}
 
       <motion.section
-        className="w-full px-6 sm:px-10 lg:px-24 xl:px-40 py-14 lg:py-24 relative rounded-2xl"
+        className="w-full px-6 z-20 sm:px-10 lg:px-24 xl:px-40 py-14 lg:py-24 relative rounded-2xl"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -321,17 +326,19 @@ export default function PricingPage() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          className="flex cursor-pointer justify-center mt-16"
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-          }}
-        >
-          <button className="px-7 text-[16px] sm:text-[18px] lg:text-[20px] py-1.5 bg-[#007bff] text-white font-semibold rounded-lg cursor-pointer transition hover:bg-[#006ee5]">
-            Contact Sales
-          </button>
-        </motion.div>
+        <Link href="/contact">
+          <motion.div
+            className="flex cursor-pointer justify-center mt-16"
+            variants={{
+              hidden: { opacity: 0, y: 15 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+            }}
+          >
+            <button className="px-5 text-[16px] py-1 bg-[#007bff] text-white font-semibold rounded-lg cursor-pointer transition hover:bg-[#006ee5]">
+              Contact Sales
+            </button>
+          </motion.div>
+        </Link>
       </motion.section>
 
 
