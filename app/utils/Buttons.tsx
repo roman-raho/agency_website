@@ -20,15 +20,15 @@ export function WorkWithUsBtn({ width, height }: { width: number, height: number
       "
     >
       <p
-        className={`font-semibold ml-0.5 text-black`}
+        className={`text-[14px] md:text-[14px] lg:text-[16px] font-semibold ml-0.5 text-black`}
       >
         Work With Us
       </p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="15"
-        viewBox="6 6 16 12"
+        width="14"
+        height="14"
+        viewBox="6 5.5 16 12"
       >
         <path
           fill="currentColor"
@@ -45,23 +45,23 @@ export function LearnMoreBtn({ width, height }: { width: number, height: number 
     <div
       className="
     inline-flex items-center justify-center
-    px-5 py-2
+    px-3 py-1
+    md:py-2 md:px-5 
     rounded-[10px] bg-white
-    border border-[#e5e5e5]
-    shadow-sm
+    border border-black/13
     hover:border-black/20
     cursor-pointer
     gap-2
     transition-all
   "
     >
-      <p className="font-medium text-[17px] text-[#111827]">
+      <p className="font-medium text-[14px] md:text-[17px] text-[#111827]">
         Learn More
       </p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="15"
+        width="14"
+        height="14"
         viewBox="6 5 16 12"
       >
         <path

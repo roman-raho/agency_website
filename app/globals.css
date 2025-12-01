@@ -5,6 +5,14 @@ body {
     sans-serif;
 }
 
+@theme {
+  /* 330px / 16 = 20.625rem */
+  --breakpoint-xxs: 20.625rem;
+
+  /* 445px / 16 = 27.8125rem */
+  --breakpoint-xs: 27.8125rem;
+}
+
 @keyframes scrollA {
   0% {
     transform: translateX(0);
@@ -21,4 +29,33 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+/* ===== Always-visible glass scrollbar ===== */
+
+/* Chrome / Safari / Edge */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent !important; /* totally invisible */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28); /* glassy white */
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px); /* frosted effect */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.38); /* slightly brighter on hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }

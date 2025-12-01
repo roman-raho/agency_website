@@ -17,10 +17,11 @@ export default function Footer({ type }: { type: number }) {
     <div className='py-15 flex flex-col items-center'>
       <div className='cursor-pointer w-fit h-fit overflow-clip rounded-[12px]'>
         <Link href="/">
-          <Image src={imageSrc} width={62} height={62} alt={"Roman Logistics Logo"} />
+          <Image className="block md:hidden" src={imageSrc} width={50} height={50} alt={"Roman Logistics Logo"} />
+          <Image className="hidden md:block" src={imageSrc} width={62} height={62} alt={"Roman Logistics Logo"} />
         </Link>
       </div>
-      <nav className="flex items-center mt-10 justify-center gap-[43px]" >
+      <nav className="flex flex-col md:flex-row items-center mt-7 md:mt-10 justify-center gap-[6px] md:gap-[43px]" >
         {
           links.map((link) => (
             <Link
@@ -33,9 +34,9 @@ export default function Footer({ type }: { type: number }) {
           ))
         }
       </nav>
-      <div className='flex justify-center mt-8 gap-10'>
-        <p className='italic text-[13px] text-[#535353]'>+44 7404 583395</p>
-        <p className='italic text-[13px] text-[#535353]'>roman@romanlogistics.co.uk</p>
+      <div className='flex justify-center mt-8 gap-5 md:gap-10'>
+        <p className='italic text-[11px] md:text-[13px] text-[#535353]'>+44 7404 583395</p>
+        <p className='italic text-[11px] md:text-[13px] text-[#535353]'>roman@romanlogistics.co.uk</p>
       </div>
     </div >
   )

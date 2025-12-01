@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "./utils/Header";
 import { colours } from "./colours.js"
 import { LearnMoreBtn, WorkWithUsBtn } from "./utils/Buttons";
@@ -6,6 +8,7 @@ import Link from "next/link";
 import PriceDropdown from "./interactive/PriceDropdown";
 import FAQDropDown from "./interactive/FAQ";
 import Footer from "./utils/Footer";
+import { motion } from "framer-motion"
 
 const IMAGES = [
   "/CourierLogos/DHL.png",
@@ -17,6 +20,24 @@ const IMAGES = [
 ];
 
 export default function LandingPage() {
+
+  const stepContainer = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const stepItem = {
+    hidden: { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <main>
       <Header pageType={0}></Header>
@@ -24,35 +45,123 @@ export default function LandingPage() {
       {/* HERO SECTION */}
 
       <section className={`${colours.background_hero}
-      h-[770px]
-      flex items-center justify-center gap-55`}>
-        <div>
-          <div>
+      h-auto lg:h-[770px] overflow-x-clip
+      flex items-center justify-center 
+      lg:gap-35 xl:gap-55 lg:flex-row   
+      flex-col gap-15 pt-30 md:pt-40 lg:pt-15`}>
+
+        {/* Glass panel for mobile */}
+        <motion.div
+          className="lg:hidden
+    relative
+    w-[240px] sm:w-[360px] p-6 sm:p-8 rounded-2xl
+    bg-white/10 backdrop-blur-xl
+    border border-white/60
+    shadow-[0_20px_40px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.08),inset_0_0_14px_rgba(255,255,255,0.22)]
+    text-white
+  "
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          {/* Ellipses now tied to the panel */}
+          <div className="pointer-events-none absolute -top-10 -right-8 w-[220px] h-[150px] rounded-full bg-[#024384] blur-[40px] opacity-50 -z-10" />
+          <div className="pointer-events-none absolute top-10 -left-15 w-[140px] h-[180px] rounded-full bg-[#0b84fd] blur-[40px] opacity-50 -z-10" />
+          <div className="pointer-events-none absolute bottom-[-30px] right-0 w-[200px] h-[130px] rounded-full bg-[#09549f] blur-[40px] opacity-50 -z-10" />
+
+          {/* vertical line behind dots */}
+          <div
+            className="
+      pointer-events-none
+      absolute right-[30px] sm:right-[38px] top-10 bottom-10 sm:top-12 sm:bottom-12
+      w-[7px] rounded-full
+      bg-white/8
+      z-0
+    "
+          />
+
+          {/* Row 1 */}
+          <div className="flex items-center justify-between mb-4 font-semibold text-[15px] sm:text-[20px]">
+            <span>Customer Orders</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#32d96a] border-2 border-black/20 shadow" />
+          </div>
+
+          {/* Row 2 */}
+          <div className="flex items-center justify-between mb-4 font-semibold text-[15px] sm:text-[20px]">
+            <span>Order Shipped</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#32d96a] border-2 border-black/20 shadow" />
+          </div>
+
+          {/* Row 3 */}
+          <div className="flex items-center justify-between mb-4 font-semibold text-[15px] sm:text-[20px]">
+            <span>Parcel In Transit</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#32d96a] border-2 border-black/20 shadow" />
+          </div>
+
+          {/* Row 4 */}
+          <div className="flex items-center justify-between mb-4 font-semibold text-[15px] sm:text-[20px]">
+            <span>Issue Raised</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full animate-pulse bg-[#ff4c4c] border-2 border-black/20 shadow" />
+          </div>
+
+          {/* Row 5 */}
+          <div className="flex items-center justify-between mb-4 font-semibold text-[15px] sm:text-[20px]">
+            <span>We Investigate</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#ffb547] border-2 border-black/20 shadow" />
+          </div>
+
+          {/* Row 6 */}
+          <div className="flex items-center justify-between font-semibold text-[15px] sm:text-[20px]">
+            <span>Resolved</span>
+            <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#32d96a] border-2 border-black/20 shadow" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col items-center justify-center lg:items-start"
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
+        >
+          <div className="flex flex-col justify-center items-center lg:items-start">
             <div className="inline-block px-2.5 py-1 bg-[#c5e2ff]/22 rounded-[9px]">
-              <p className="text-white font-bold text-[16px]">Used by independent watch brands worldwide</p>
+              <p className="text-white/90 font-semibold md:font-bold text-[12px] xs:text-[13px] md:text-[14px]">
+                Used by
+                <span className="hidden xs:inline-block">
+                  &nbsp;independent
+                </span> watch brands worldwide
+              </p>
             </div>
-            <p className="font-semibold mt-5 text-white text-[35px] tracking-[1px] leading-tight">
-              Managing the messy side <br />of watch-brand shipping
+            <p className="font-semibold mt-2 xs:mt-3 md:mt-3 text-white 
+            text-[24px] xxs:text-[26px] text-center lg:text-left
+            xs:text-[30px] md:text-[42px] md:tracking-[0px] lg:text-[39px] xl:text-[42px] -tracking-[1px]  leading-tight">
+              Managing the messy side <br />of watch<span className="hidden md:inline-block">-brand</span> shipping
             </p>
-            <p className="font-light mt-5 text-[#e8e8e8] text-[14px]">
+            <p className="font-light hidden lg:block mt-2 text-[#e8e8e8] text-[12px] lg:text-[14px]">
               Built by a watch microbrand founder who shipped internatioanally.
             </p>
-            <p className="leading-[30px] mt-1 text-[22px] font-medium text-white ">
-              We handle everything that can go wrong <br />after your watches ship - from customs <br />seizures to lost parcels alongside <br />operational work: filing claims, chasing <br />couriers, updating customers, and more.
+            <p className="md:hidden lg:block leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xs:mt-2 md:mt-4 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
+              We handle everything that can go wrong <br />after your watches ship - from customs <br />seizures to lost parcels<span className="hidden md:inline"> alongside <br />operational work: filing claims, chasing <br />couriers, updating customers, and more.</span>
+            </p>
+
+            {/* For medium viewports */}
+            <p className="hidden md:block lg:hidden leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xs:mt-2 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
+              We handle everything that can go wrong after your watches ship - from <br />customs seizures to lost parcels alongside operational work: filing <br />claims, chasing couriers, updating customers, and more.
             </p>
           </div>
-          <div className="mt-14">
-            <WorkWithUsBtn height={37} width={157} />
+          <div className="my-7 md:hidden">
+            <WorkWithUsBtn width={137} height={32} ></WorkWithUsBtn >
           </div>
-        </div>
+          <div className="hidden md:block mt-14 mb-14 lg:mb-0">
+            <WorkWithUsBtn width={155} height={37} ></WorkWithUsBtn >
+          </div>
+        </motion.div>
 
-        {/* Elipses */}
-        <div className="absolute top-40 right-40 w-[320px] h-[220px] rounded-full bg-[#024384] blur-[40px] opacity-50"></div>
-        <div className="absolute top-75 right-130 w-[120px] h-[170px] rounded-full bg-[#0b84fd] blur-[40px] opacity-50"></div>
-        <div className="absolute top-115 right-50 w-[240px] h-[140px] rounded-full bg-[#09549f] blur-[40px] opacity-50"></div>
         {/* Glass Panel */}
-        <div
-          className="
+        <motion.div
+          className="hidden lg:block
     relative
     w-[360px] p-8 rounded-2xl
     bg-white/10 backdrop-blur-xl
@@ -60,7 +169,16 @@ export default function LandingPage() {
     shadow-[0_20px_40px_rgba(0,0,0,0.45),0_0_0_1px_rgba(255,255,255,0.08),inset_0_0_14px_rgba(255,255,255,0.22)]
     text-white
   "
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.12 }}
         >
+          {/* Ellipses now tied to the panel */}
+          <div className="pointer-events-none absolute -top-10 -right-8 w-[220px] h-[150px] rounded-full bg-[#024384] blur-[40px] opacity-50 -z-10" />
+          <div className="pointer-events-none absolute top-10 -left-15 w-[140px] h-[180px] rounded-full bg-[#0b84fd] blur-[40px] opacity-50 -z-10" />
+          <div className="pointer-events-none absolute bottom-[-30px] right-0 w-[200px] h-[130px] rounded-full bg-[#09549f] blur-[40px] opacity-50 -z-10" />
+
           {/* vertical line behind dots */}
           <div
             className="
@@ -107,32 +225,49 @@ export default function LandingPage() {
             <span>Resolved</span>
             <div className="relative z-10 w-[19px] h-[19px] rounded-full bg-[#32d96a] border-2 border-black/20 shadow" />
           </div>
-        </div>
+        </motion.div>
+
 
       </section>
 
+
       {/* SECTION 1 - COURIERS */}
 
-      <section className="w-full h-auto px-20 py-15">
-        <div className="flex items-center justify-center">
-          <div className="text-[30px] font-bold text-[#006FE4]"><span className="opacity-40">We deal with </span><span className="opacity-100">all major</span><span className="opacity-40"> couriers</span></div>
-        </div>
+      <section className="w-full h-auto px-8 py-8 md:px-14 lg:px-20 md:py-15">
+        {/* heading animated in */}
+        <motion.div
+          className="flex items-center justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+        >
+          <div className="text-[17px] xs:text-[19px] sm:text-[21px] text-center md:text-[30px] font-bold text-[#006FE4]">
+            <span className="opacity-40">We deal with </span>
+            <span className="opacity-100">all major</span>
+            <span className="opacity-40"> couriers</span>
+          </div>
+        </motion.div>
 
         {/* INFINITE SCROLL */}
-        <div
+        <motion.div
           className="
     relative
-    w-250
-    mx-auto mt-13
+    w-[80%]
+    mx-auto mt-7 sm:mt-10 md:mt-13
     overflow-hidden
     py-4
   "
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
         >
           {/* Fade left */}
           <div
             className="
       pointer-events-none
-      absolute left-0 top-0 h-full w-60 
+      absolute left-0 top-0 h-full w-[20%] 
       bg-gradient-to-r from-white to-transparent
       z-20
     "
@@ -142,7 +277,7 @@ export default function LandingPage() {
           <div
             className="
       pointer-events-none
-      absolute right-0 top-0 h-full w-60
+      absolute right-0 top-0 h-full w-[20%]
       bg-gradient-to-l from-white to-transparent
       z-20
     "
@@ -156,13 +291,20 @@ export default function LandingPage() {
     "
           >
             {IMAGES.map((src, i) => (
-              <div key={`a-${i}`} className="mx-13 flex items-center justify-center">
+              <div key={`a-${i}`} className="mx-7 md:mx-13 flex items-center justify-center">
                 <Image
                   src={src}
                   alt=""
-                  width={200}
-                  height={200}
-                  className="object-contain"
+                  width={130}
+                  height={130}
+                  className="object-contain hidden md:block"
+                />
+                <Image
+                  src={src}
+                  alt=""
+                  width={70}
+                  height={70}
+                  className="object-contain md:hidden"
                 />
               </div>
             ))}
@@ -177,20 +319,35 @@ export default function LandingPage() {
     "
           >
             {IMAGES.map((src, i) => (
-              <div key={`b-${i}`} className="mx-13 flex items-center justify-center">
+              <div key={`b-${i}`} className="mx-7 md:mx-13 flex items-center justify-center">
+                {/* ✅ FIX: match desktop size to Track A so speed/spacing align */}
                 <Image
                   src={src}
                   alt=""
-                  width={200}
-                  height={200}
-                  className="object-contain"
+                  width={130}
+                  height={130}
+                  className="object-contain hidden md:block"
+                />
+                <Image
+                  src={src}
+                  alt=""
+                  width={70}
+                  height={70}
+                  className="object-contain md:hidden"
                 />
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-20 px-17 py-14 border rounded-[12px] border-[#cecece] h-auto">
+        {/* Bottom block – still hidden, but ready for animation if you unhide it later */}
+        <motion.div
+          className="mt-20 px-6 xs:px-10 md:px-13 lg:px-17 py-8 xs:py-10 md:py-14 border rounded-[12px] border-[#cecece] h-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+        >
           <div className="flex items-center gap-2 w-fit bg-[#6cbbff]/40 mb-4 py-1 rounded-[9px] px-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -211,110 +368,220 @@ export default function LandingPage() {
               </g>
             </svg>
 
-            <span className="text-[#00284b] font-semibold">Time Save</span>
+            <span className="text-[#00284b] font-semibold text-[13px] md:text-[15px]">
+              Time Save
+            </span>
           </div>
 
-          <p className="font-bold text-[53px]">
-            All your <br />shipping headaches <span className="text-[#0088FF]">gone.</span>
+          {/* Heading */}
+          <p className="font-bold text-[24px] xs:text-[26px] sm:text-[30px] md:text-[40px] lg:text-[53px] leading-[1.2] text-left">
+            All your <br />
+            shipping headaches <span className="text-[#0088FF]">gone.</span>
           </p>
 
           {/* 3 Box Breakdown */}
-          <div className="mt-21 grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-16 ">
-
+          <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-x-10 lg:gap-x-16 gap-y-10 md:gap-y-16">
             {/* Card 1 */}
-            <div>
-              <div className="w-16 h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
+            <div className="text-left">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
                 <div className="flex items-center justify-center text-[#289BFF] w-full h-full rounded-[9px] bg-[#f3f9ff]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m20 7l-8-4l-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="38"
+                    height="38"
+                    className="sm:w-[45px] sm:h-[45px]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m20 7l-8-4l-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    />
                   </svg>
                 </div>
               </div>
-
-              <p className="mt-6 font-semibold leading-[1.35] tracking-[1px] text-[28px]">
-                Dealing with Courier <br />Chaos
+              <p className="mt-4 sm:mt-6 font-semibold leading-[1.35] tracking-[1px] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
+                Dealing with
+                Courier
+                Chaos
               </p>
-              <p className="mt-3 text-[#545454] leading-[1.5] text-[19px]">
-                Lost parcels, customs issues and <br />tracking dead-ends waste your time. <br />
-                We take over all carrier communication <br />and resolve issues for you.
+              <p className="mt-2 sm:mt-3 text-[#545454] leading-[1.5] text-[15px] sm:text-[17px] md:text-[19px]">
+                Lost parcels, customs issues and
+                tracking dead-ends waste your time.
+                We take over all carrier communication
+                and resolve issues for you.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div>
-              <div className="w-16 h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
+            <div className="text-left">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
                 <div className="flex items-center justify-center text-[#289BFF] w-full h-full rounded-[9px] bg-[#f3f9ff]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 1000 1000">
-                    <path fill="currentColor" d="m746 641l254 255l-105 105l-254-254q-106 72-232 72q-169 0-289-120T0 410t120-289T409 1t289 120t120 289q0 127-72 231zm-65-231q0-113-79.5-193T409 137t-193 80t-80 193t80 192.5T409 682t192.5-79.5T681 410z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    className="sm:w-[33px] sm:h-[33px]"
+                    viewBox="0 0 1000 1000"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m746 641l254 255l-105 105l-254-254q-106 72-232 72q-169 0-289-120T0 410t120-289T409 1t289 120t120 289q0 127-72 231zm-65-231q0-113-79.5-193T409 137t-193 80t-80 193t80 192.5T409 682t192.5-79.5T681 410z"
+                    />
                   </svg>
                 </div>
               </div>
-
-              <p className="mt-6 font-semibold leading-[1.35] tracking-[1px] text-[28px]">
-                Claims and <br />Investigations Hell
+              <p className="mt-4 sm:mt-6 font-semibold leading-[1.35] tracking-[1px] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
+                Claims and
+                Investigations Hell
               </p>
-              <p className="mt-3 text-[#545454] leading-[1.5] text-[19px]">
-                Claims are confusing and easy to <br />get wrong. We manage the full <br />
-                investigation → claim → resolution <br />process.
+              <p className="mt-2 sm:mt-3 text-[#545454] leading-[1.5] text-[15px] sm:text-[17px] md:text-[19px]">
+                Claims are confusing and easy to
+                get wrong. We manage the full
+                investigation → claim → resolution
+                process.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div>
-              <div className="w-16 h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
+            <div className="text-left">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 p-1 rounded-[9px] bg-[#289BFF]/12">
                 <div className="flex items-center justify-center text-[#289BFF] w-full h-full rounded-[9px] bg-[#f3f9ff]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 16 16">
-                    <path fill="currentColor" fillRule="evenodd" d="M10 4.5a2 2 0 1 1-4 0a2 2 0 0 1 4 0m1.5 0a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0m-9 8c0-.204.22-.809 1.32-1.459C4.838 10.44 6.32 10 8 10c1.68 0 3.162.44 4.18 1.041c1.1.65 1.32 1.255 1.32 1.459a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1m5.5-4c-3.85 0-7 2-7 4A2.5 2.5 0 0 0 3.5 15h9a2.5 2.5 0 0 0 2.5-2.5c0-2-3.15-4-7-4" clipRule="evenodd" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="34"
+                    height="34"
+                    className="sm:w-[40px] sm:h-[40px]"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      fillRule="evenodd"
+                      d="M10 4.5a2 2 0 1 1-4 0a2 2 0 0 1 4 0m1.5 0a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0m-9 8c0-.204.22-.809 1.32-1.459C4.838 10.44 6.32 10 8 10c1.68 0 3.162.44 4.18 1.041c1.1.65 1.32 1.255 1.32 1.459a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1m5.5-4c-3.85 0-7 2-7 4A2.5 2.5 0 0 0 3.5 15h9a2.5 2.5 0 0 0 2.5-2.5c0-2-3.15-4-7-4"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
               </div>
-
-              <p className="mt-6 font-semibold leading-[1.35] tracking-[1px] text-[28px]">
-                Customer Stress and <br />Reputation Risk
+              <p className="mt-4 sm:mt-6 font-semibold leading-[1.35] tracking-[1px] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
+                Customer Stress and
+                Reputation Risk
               </p>
-              <p className="mt-3 text-[#545454] leading-[1.5] text-[19px]">
-                Delays make customers anxious. <br />
-                We handle all shipping related <br />
-                communication to protect your <br />brand experience.
+              <p className="mt-2 sm:mt-3 text-[#545454] leading-[1.5] text-[15px] sm:text-[17px] md:text-[19px]">
+                Delays make customers anxious.
+                We handle all shipping related
+                communication to protect your
+                brand experience.
               </p>
             </div>
-
           </div>
-          <div className="mt-14 mx-auto w-full flex justify-center">
+
+          <div className="mt-10 md:mt-14 mx-auto w-full flex justify-center">
             <LearnMoreBtn width={145} height={37} />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* SECTION 2 - Founders Note */}
-      <section className="px-20 pt-3 pb-15 w-full">
-        <div className="grid grid-cols-[11%_89%] items-start">
-          <div className="h-20 w-20 rounded-full bg-[radial-gradient(circle,_#6aaeff_0%,_#add3ff_55%,_#eef6ff_100%)]" />
-          <div>
-            <p className="font-bold text-[40px] text-[#021f3b]">Founders Note</p>
-            <p className="mt-2 text-[17px] italic">Built by a watch microbrand founder who shipped worldwide.</p>
-            <p className="mt-5 text-[22px]">I built this after running a watch microbrand. Shipping Seiko mods worldwide <br />showed me how chaotic couriers can be - this is the system I wish I had.</p>
+      <section className="w-full px-6 md:px-14 lg:px-20 pt-8 md:pt-3 pb-12 md:pb-15">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-[11%_auto] items-center md:items-start gap-y-6 md:gap-y-0 md:gap-x-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          {/* Avatar circle */}
+          <motion.div
+            className="flex justify-center md:justify-start"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+          >
+            <div className="h-16 w-16 md:h-18 md:w-18 lg:h-20 lg:w-20 rounded-full bg-[radial-gradient(circle,_#6aaeff_0%,_#add3ff_55%,_#eef6ff_100%)]" />
+          </motion.div>
+
+          {/* Text block */}
+          <motion.div
+            className="text-center md:text-left"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+          >
+            <p className="font-bold text-[24px] sm:text-[32px] md:text-[40px] text-[#021f3b]">
+              Founders Note
+            </p>
+
+            <p className="mt-2 text-[14px] sm:text-[16px] md:text-[17px] italic">
+              Built by a watch microbrand founder who shipped worldwide.
+            </p>
+
+            <p className="mt-5 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed">
+              I built this after running a watch microbrand. Shipping Seiko mods worldwide <br className="hidden lg:block" />
+              showed me how chaotic couriers can be – this is the system I wish I had.
+            </p>
+
             <div className="mt-4">
-              <Link href="#about" className="font-semibold text-[17px]">
-                Read More...
-              </Link>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+              >
+                <Link href="#about" className="font-semibold text-[15px] sm:text-[16px] md:text-[17px]">
+                  Read More...
+                </Link>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* SECTION 3 - How it Works */}
-      <section className={`px-20 overflow-clip py-15 relative h-180 w-full ${colours.background_hero}`}>
-        <div className="absolute z-0 top-30 right-40 w-[420px] h-[320px] rounded-full bg-[#1e81e3] blur-[60px] opacity-50"></div>
-        <div className="absolute z-0 top-70 left-40 w-[350px] h-[400px] rounded-full bg-[#033465] blur-[60px] opacity-50"></div>
-        <div className="absolute z-0 -bottom-50 right-40 w-[600px] h-[300px] rounded-full bg-[#06498b] blur-[60px] opacity-50"></div>
 
-        <div className="flex z-10 relative justify-between items-center">
-          <div>
-            <p className="font-bold text-[#0088FF] text-[27px] mb-2">How it works</p>
-            <p className="font-bold text-white text-[55px]"><span className="italic">Simple, </span><br />Intuitive & quick.</p>
-            <div className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-14 py-1.5 rounded-[10px] flex items-center gap-2">
-              <p className="font-semibold">See full process</p>
+      {/* SECTION 3 - How it Works */}
+      <section
+        className={`relative w-full overflow-clip px-8 sm:px-14 lg:px-20 py-12 lg:py-15 ${colours.background_hero}`}
+      >
+        {/* BG blobs – unchanged, no motion */}
+        <div className="absolute z-0 top-16 md:top-24 lg:top-30 right-0 md:right-20 lg:right-40 w-[260px] md:w-[360px] lg:w-[420px] h-[220px] md:h-[280px] lg:h-[320px] rounded-full bg-[#1e81e3] blur-[60px] opacity-50" />
+        <div className="absolute z-0 top-40 md:top-56 lg:top-70 left-[-60px] md:left-10 lg:left-40 w-[260px] md:w-[320px] lg:w-[350px] h-[260px] md:h-[340px] lg:h-[400px] rounded-full bg-[#033465] blur-[60px] opacity-50" />
+        <div className="absolute z-0 -bottom-40 md:-bottom-40 lg:-bottom-50 right-[-80px] md:right-10 lg:right-40 w-[360px] md:w-[500px] lg:w-[600px] h-[220px] md:h-[260px] lg:h-[300px] rounded-full bg-[#06498b] blur-[60px] opacity-50" />
+
+        {/* Top copy */}
+        <motion.div
+          className="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 lg:gap-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+          >
+            <p className="font-bold text-[#0088FF] text-[18px] sm:text-[21px] lg:text-[27px] mb-2">
+              How it works
+            </p>
+            <p className="font-bold text-white text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] leading-tight">
+              <span className="italic">Simple, </span>
+              <br />
+              Intuitive & quick.
+            </p>
+            <motion.div
+              className="bg-white cursor-pointer hover:shadow-lg transition-100 hover:shadow-white/10 w-fit px-4 mt-7 md:mt-9 lg:mt-14 py-1.5 rounded-[10px] flex items-center gap-2"
+              whileHover={{ y: -2, boxShadow: "0 10px 24px rgba(0,0,0,0.25)" }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            >
+              <p className="font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
+                See full process
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
@@ -326,103 +593,113 @@ export default function LandingPage() {
                   d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z"
                 />
               </svg>
+            </motion.div>
+          </motion.div>
+
+          <motion.p
+            className="xl:w-140 lg:w-100 w-full italic lg:not-italic lg:font-semibold text-[17px] sm:text-[20px] lg:text-[27px] xl:text-[31px] leading-7 sm:leading-8 lg:leading-11 text-white text-left lg:text-right "
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 }}
+          >
+            We plug directly into your
+            shipping flow, monitor every
+            parcel in real time and resolve
+            issues before they impact your
+            customers.
+          </motion.p>
+        </motion.div>
+
+        {/* MOBILE/TABLET VERSION – stacked steps */}
+        <motion.div
+          className="relative z-10 mt-10 lg:hidden flex flex-col gap-6"
+          variants={stepContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Step 1 */}
+          <motion.div className="flex gap-4" variants={stepItem}>
+            <div>
+              <span className="text-white text-[18px] font-bold">1</span>
             </div>
-          </div>
+            <div>
+              <p className="text-white font-semibold text-[16px] sm:text-[17px]">
+                Onboard onto our system
+              </p>
+              <p className="mt-1 text-white/80 text-[14px] leading-5">
+                We connect to your store and set up your workflows so new orders and
+                tracking data flow straight into our system.
+              </p>
+            </div>
+          </motion.div>
 
-          <p className="font-semibold text-[31px] leading-11 text-white text-right">We plug directly into your<br />shipping flow, monitor every<br />parcel in real time and resolve<br />issues before they impact your<br />customers.</p>
-        </div>
-        <div className="relative flex flex-col items-center justify-center gap-2 pb-3 mt-2 ">
-          <p className="text-white font-bold tracking-[0.5px] text-[24px]">Issue</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54"
-            height="54"
-            viewBox="0 0 24 24"
-            className="fill-[url(#errorGradient)]"
-          >
-            <defs>
-              <linearGradient id="errorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#9ECDFF" />
-                <stop offset="100%" stopColor="#3F9DFF" />
-              </linearGradient>
-            </defs>
+          {/* Step 2 */}
+          <motion.div className="flex gap-4" variants={stepItem}>
+            <div>
+              <span className="text-white text-[18px] font-bold">2</span>
+            </div>
+            <div>
+              <p className="text-white font-semibold text-[16px] sm:text-[17px]">
+                Monitor your shipments
+              </p>
+              <p className="mt-1 text-white/80 text-[14px] leading-5">
+                Every parcel is tracked in real time. Exceptions, delays and customs
+                issues are surfaced automatically.
+              </p>
+            </div>
+          </motion.div>
 
-            <path d="m12 1l11.951 20.7H.05L12 1ZM3.513 19.7h16.974L12 5L3.513 19.7ZM13 9.5V15h-2V9.5h2Zm-2 7h2.004v2.004H11V16.5Z" />
-          </svg>
-        </div>
-        <div className="relative grid grid-cols-3 mt-15 ">
-          <svg
-            className="absolute left-44 top-1/2 -translate-y-1/2 w-[74px] h-[4px]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="100%"
-              y2="1"
-              stroke="#3F9DFF"
-              strokeWidth="6"
-              strokeDasharray="14 10"
-            />
-          </svg>
-          <svg
-            className="absolute right-46 top-1/2 -translate-y-1/2 w-[71px] h-[4px]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="100%"
-              y2="1"
-              stroke="#3F9DFF"
-              strokeWidth="6"
-              strokeDasharray="14 10"
-            />
-          </svg>
-          <svg
-            className="absolute left-110 -rotate-[22deg] bottom-16.5 w-[228.5px] h-[4px]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="100%"
-              y2="1"
-              stroke="#3F9DFF"
-              strokeWidth="6"
-              strokeDasharray="14 10"
-            />
-          </svg>
-          <svg
-            className="absolute right-110 rotate-[22deg] bottom-16.5 w-[228.5px] h-[4px]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="100%"
-              y2="1"
-              stroke="#3F9DFF"
-              strokeWidth="6"
-              strokeDasharray="14 10"
-            />
-          </svg>
-          <div className="flex items-center gap-25">
-            <p className="text-white leading-7 font-bold text-[24px] tracking-[0.5px]">Onboard onto <br />our system</p>
-            <p className="text-white leading-7 font-bold text-[24px] tracking-[0.5px]">Monitor your <br />shipments</p>
-          </div>
-          <div>
+          {/* Step 3 */}
+          <motion.div className="flex gap-4" variants={stepItem}>
+            <div>
+              <span className="text-white text-[18px] font-bold">3</span>
+            </div>
+            <div>
+              <p className="text-white font-semibold text-[16px] sm:text-[17px]">
+                We deal with issues
+              </p>
+              <p className="mt-1 text-white/80 text-[14px] leading-5">
+                Our team files claims, chases couriers and resolves problems directly
+                with carriers so you don’t have to.
+              </p>
+            </div>
+          </motion.div>
 
-          </div>
-          <div className="flex items-center justify-start gap-25">
-            <p className="text-white leading-7 ml-4 font-bold text-[24px] tracking-[0.5px]">We deal with <br />issues</p>
-            <p className="text-white leading-7 font-bold text-[24px] tracking-[0.5px]">You get <br />updated</p>
-          </div>
+          {/* Step 4 */}
+          <motion.div className="flex gap-4" variants={stepItem}>
+            <div>
+              <span className="text-white text-[18px] font-bold">4</span>
+            </div>
+            <div>
+              <p className="text-white font-semibold text-[16px] sm:text-[17px]">
+                You get updated
+              </p>
+              <p className="mt-1 text-white/80 text-[14px] leading-5">
+                You and your customers get clear, timely updates so you stay in
+                control without living in carrier portals.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* DESKTOP VERSION – SVG pipeline diagram (no motion) */}
+        <div className="relative z-10 hidden lg:flex justify-center mt-2 lg:mt-4 xl:mt-11">
+          <Image
+            src={"/issue_pipeline_dup.svg"}
+            width={1800}
+            height={400}
+            alt={"Explanation of how it works - Diagram"}
+            className="h-auto"
+          />
         </div>
       </section>
 
+
+
       {/* SECTION 4 - Pricing Section */}
-      <section className="px-20 pt-15 pb-8 bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)] overflow-clip relative h-auto">
+      <section className="hidden px-20 pt-15 pb-8 bg-[linear-gradient(to_right,#55AAFF2b,#88C4FF2b)] overflow-clip relative h-auto">
         <div className="relative z-10">
           <p className="text-[#001121] font-bold text-[60px]">Simple, Transparent Pricing</p>
           <p className="text-[#001121] italic text-[18px] mt-5">Each plan includes all listed features</p>
@@ -454,7 +731,7 @@ export default function LandingPage() {
       </section>
 
       {/* SECTION 5 - CTA */}
-      <section className="w-full px-20 py-15 h-auto">
+      <section className="hidden w-full px-20 py-15 h-auto">
         <div className="grid grid-rows-1 grid-cols-[80%_20%] border rounded-[12px] px-10 py-7 border-[#cecece]">
           <div className="py-3">
             <p className="font-bold text-[#001121] text-[40px]">2 Week Free Trial</p>
@@ -478,7 +755,7 @@ export default function LandingPage() {
       </section>
 
       {/* SECTION 6 - FAQs */}
-      <section className="w-full  px-20 py-15 items-center grid grid-cols-2">
+      <section className="hidden w-full  px-20 py-15 items-center grid grid-cols-2">
         <div className="w-fit mx-auto mb-auto">
           <p className="font-semibold text-[50px] leading-15">Frequently Asked<br />Questions</p>
           <p className="text-[17px] mt-3.5">Answers to common questions</p>
@@ -490,8 +767,9 @@ export default function LandingPage() {
           <FAQDropDown />
         </div>
       </section>
-
-      <Footer type={0} />
+      <div>
+        <Footer type={0} />
+      </div>
     </main  >
   )
 }
