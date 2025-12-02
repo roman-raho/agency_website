@@ -102,7 +102,7 @@ export default function ContactPage() {
               </div>
             </Link>
             <p className="text-[12px] sm:text-[14px] ml-1 sm:ml-2 mt-3 text-[#3a3a3a]">
-              Or text us at +44 7404 583395
+              Or text us at +44 7404 965583
             </p>
           </motion.div>
 

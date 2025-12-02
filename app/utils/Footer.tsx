@@ -35,7 +35,7 @@ export default function Footer({ type }: { type: number }) {
         }
       </nav>
       <div className='flex justify-center mt-8 gap-5 md:gap-10'>
-        <p className='italic text-[11px] md:text-[13px] text-[#535353]'>+44 7404 583395</p>
+        <p className='italic text-[11px] md:text-[13px] text-[#535353]'>+44 7404 965583</p>
         <p className='italic text-[11px] md:text-[13px] text-[#535353]'>support@romanlogistics.co.uk</p>
       </div>
     </div >
