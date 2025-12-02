@@ -27,7 +27,7 @@ export default function ContactPage() {
       >
         {/* Heading */}
         <motion.div
-          className="flex flex-col items-center justify-center text-center"
+          className="mt-5 lg:mt-0 flex flex-col items-center justify-center text-center"
           variants={{
             hidden: { opacity: 0, y: 15 },
             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },

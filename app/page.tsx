@@ -342,7 +342,7 @@ export default function LandingPage() {
 
         {/* Bottom block – still hidden, but ready for animation if you unhide it later */}
         <motion.div
-          className="mt-20 px-6 xs:px-10 md:px-13 lg:px-17 py-8 xs:py-10 md:py-14 border rounded-[12px] border-[#cecece] h-auto"
+          className="mt-10 lg:mt-20 px-6 xs:px-10 md:px-13 lg:px-17 py-8 xs:py-10 md:py-14 border rounded-[12px] border-[#cecece] h-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
