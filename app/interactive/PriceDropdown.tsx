@@ -11,7 +11,7 @@ const PLANS = [
     range: "0 - 25 orders/month",
     price: "£69 per/month",
     blurb:
-      "Perfect for microbrands testing the market. Full issue handling, customer updates, and courier escalation included.",
+      "Perfect for microbrands testing the market. All features included as detailed below.",
   },
   {
     id: "growth" as PlanId,
@@ -19,7 +19,7 @@ const PLANS = [
     range: "25 - 60 orders/month",
     price: "£139 per/month",
     blurb:
-      "For growing brands that need consistent support as order volume increases and shipping complexity creeps in.",
+      "For growing brands that need consistent support as order volume increases and shipping complexity creeps in. All features included as detailed below.",
   },
   {
     id: "scaling" as PlanId,
@@ -27,7 +27,7 @@ const PLANS = [
     range: "60 - 120 orders/month",
     price: "£249 per/month",
     blurb:
-      "Ideal for brands scaling aggressively. Priority handling, faster SLAs, and tighter escalation workflows.",
+      "Ideal for brands scaling aggressively. All features included as detailed below.",
   },
   {
     id: "enterprise" as PlanId,
@@ -35,7 +35,7 @@ const PLANS = [
     range: "Custom orders/month",
     price: "Custom pricing",
     blurb:
-      "For high-volume operations needing fully managed shipping support, reporting, and tailored playbooks.",
+      "For high-volume operations needing fully managed shipping support. All features included as detailed below + custom additions if needed.",
   },
 ];
 
@@ -50,7 +50,15 @@ export default function PriceDropdown() {
         return (
           <div
             key={plan.id}
-            className="w-full rounded-xl lg:rounded-2xl bg-black/4 backdrop-blur-xl border border-white/60 md:border-white transition-all duration-300 overflow-hidden"
+            className="
+              w-full
+              rounded-xl lg:rounded-2xl
+              bg-black/4
+              backdrop-blur-none md:backdrop-blur-xl
+              border border-white/60 md:border-white
+              transition-[max-height] duration-300
+              overflow-hidden
+            "
           >
             {/* clickable header */}
             <button
@@ -70,7 +78,7 @@ export default function PriceDropdown() {
                       w-8 h-8
                       sm:w-10 sm:h-10
                       md:w-14 md:h-14
-                      lg:w-[100px] lg:h-[100px] /* original size on desktop */
+                      lg:w-[100px] lg:h-[100px]
                     "
                   >
                     <path
@@ -97,9 +105,9 @@ export default function PriceDropdown() {
 
             {/* expanding body *inside* glass panel */}
             <div
-              className={`transition-all duration-300 ${isOpen
-                  ? "max-h-[400px] opacity-100 py-3 px-4 sm:px-6 lg:py-4 lg:px-35"
-                  : "max-h-0 opacity-0 px-4 sm:px-6 lg:px-35"
+              className={`${isOpen
+                ? "max-h-[400px] py-3 px-4 sm:px-6 lg:py-4 lg:px-35"
+                : "max-h-0 px-4 sm:px-6 lg:px-35"
                 }`}
             >
               {/* Range moves into body on small screens */}

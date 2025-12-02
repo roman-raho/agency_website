@@ -233,8 +233,8 @@ export default function PricingPage() {
           </div>
           <div className="text-[14px] lg:text-[15px] leading-6 text-[#2e2e2e]">
             We monitor every shipment and step in when delays, missing scans, failed deliveries,
-            or tracking dead-ends appear — resolving the issue directly with the courier and
-            keeping the customer informed.
+            or tracking dead-ends appear - resolving the issue directly with the courier and
+            keeping the customer updated.
           </div>
 
           <div>
@@ -255,7 +255,7 @@ export default function PricingPage() {
           </div>
           <div className="text-[14px] lg:text-[15px] leading-6 text-[#2e2e2e]">
             We resolve customs holds, missing documents, incorrect HS codes, duty/VAT
-            confusion, and any cross-border problems — coordinating with customs teams and
+            confusion, and any cross-border problems - coordinating with customs teams and
             guiding customers through required steps.
           </div>
 
@@ -286,7 +286,7 @@ export default function PricingPage() {
             </p>
           </div>
           <div className="text-[14px] lg:text-[15px] leading-6 text-[#2e2e2e]">
-            We handle all shipping-related customer messages across email, WhatsApp, and DMs —
+            We handle all shipping-related customer messages across email and WhatsApp -
             providing structured updates, calming anxious buyers, and protecting the brand’s
             reputation.
           </div>

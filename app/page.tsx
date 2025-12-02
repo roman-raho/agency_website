@@ -410,7 +410,7 @@ export default function LandingPage() {
               </p>
               <p className="mt-2 sm:mt-3 text-[#545454] leading-[1.5] text-[15px] sm:text-[17px] md:text-[19px]">
                 Lost parcels, customs issues and
-                tracking dead-ends waste your time.
+                unclear tracking wastes your time.
                 We take over all carrier communication
                 and resolve issues for you.
               </p>
@@ -473,7 +473,7 @@ export default function LandingPage() {
               <p className="mt-2 sm:mt-3 text-[#545454] leading-[1.5] text-[15px] sm:text-[17px] md:text-[19px]">
                 Delays make customers anxious.
                 We handle all shipping related
-                communication to protect your
+                communication to protect your customers
                 brand experience.
               </p>
             </div>
@@ -521,9 +521,8 @@ export default function LandingPage() {
               Built by a watch microbrand founder who shipped worldwide.
             </p>
 
-            <p className="mt-5 text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed">
-              I built this after running a watch microbrand. Shipping Seiko mods worldwide <br className="hidden lg:block" />
-              showed me how chaotic couriers can be – this is the system I wish I had.
+            <p className="mt-5 lg:w-[80%] text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed">
+              I built this after running a watch microbrand and shipping 100+ watches worldwide. Shipping these watches showed me how chaotic couriers can be - this is the system I wish I had.
             </p>
 
             <div className="mt-4">
@@ -724,7 +723,7 @@ export default function LandingPage() {
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="text-[#001121] font-bold text-[40px] lg:text-[60px]"
           >
-            Simple, Transparent Pricing
+            Easy, Transparent Pricing
           </motion.p>
 
           <motion.p
@@ -885,7 +884,7 @@ export default function LandingPage() {
         text-[32px] sm:text-[40px] lg:text-[50px]
       "
           >
-            Frequently Asked
+            Frequently Asked<br />
             Questions
           </p>
           <p className="text-[15px] sm:text-[16px] lg:text-[17px] mt-3.5">

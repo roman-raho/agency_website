@@ -1,0 +1,3 @@
+- [x] Fix laggy dropdowns
+- [x] Update text
+- [x] do all FAQs

@@ -77,7 +77,7 @@ export default function ContactPage() {
               </p>
             </div>
             <p className="w-[90%] md:w-[85%] mt-2 ml-1 sm:ml-2 text-[14px] sm:text-[16px] lg:text-[18px] text-[#000000] leading-6">
-              Message our team on WhatsApp —
+              Message our team on WhatsApp -
               we will answer your questions and
               can help you book a call if needed.
             </p>

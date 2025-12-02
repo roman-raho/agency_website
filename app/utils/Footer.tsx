@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 const links = [
   { id: "solution", label: "Solution", href: "/" },
-  { id: "how-it-works", label: "How It Works", href: "how-it-works" },
-  { id: "pricing", label: "Pricing", href: "#pricing" },
-  { id: "about", label: "About", href: "#about" },
-  { id: "contact", label: "Contact", href: "#contact" },
+  { id: "how-it-works", label: "How It Works", href: "/how-it-works" },
+  { id: "pricing", label: "Pricing", href: "/pricing" },
+  { id: "about", label: "About", href: "/about" },
+  { id: "contact", label: "Contact", href: "/contact" },
 ];
 
 

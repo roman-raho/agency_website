@@ -41,32 +41,13 @@ export default function AboutPage() {
 
           {/* Intro paragraph */}
           <p className="mt-8 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
-            I started this after running my own watch microbrand, shipping Seiko mods and small-batch
-            releases to customers around the world. I dealt with every problem you&apos;re facing now —
+            I started this after running my own watch microbrand, shipping small-batch
+            releases to customers around the world. I dealt with every problem you&apos;re facing now -
             delays with no explanation, customs holds, missing scans, damaged parcels, and anxious
             customers wanting answers I didn&apos;t have. After years of handling these issues myself,
             I built the system I always wished existed: a structured, calm way to manage the messy side
             of shipping so founders can focus on building their brand, not chasing couriers.
           </p>
-        </motion.div>
-
-        {/* Experience Highlights */}
-        <motion.div
-          className="max-w-3xl mx-auto mt-10"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-          }}
-        >
-          <h3 className="text-[17px] md:text-[18px] font-semibold text-[#001121] mb-3">
-            Experience Highlights
-          </h3>
-          <ul className="list-disc pl-6 space-y-2 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
-            <li>Shipped internationally to over 20 countries</li>
-            <li>Managed hundreds of courier issues directly</li>
-            <li>Learned escalation systems through real-world experience</li>
-            <li>Built structured workflows that now power this service</li>
-          </ul>
         </motion.div>
 
         {/* How I Work */}
@@ -82,13 +63,13 @@ export default function AboutPage() {
           </h3>
           <ul className="list-disc pl-6 space-y-2 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
             <li>
-              <span className="font-semibold">Clarity —</span> Every issue gets a structured, transparent update
+              <span className="font-semibold">Clarity -</span> Every issue gets a structured, transparent update
             </li>
             <li>
-              <span className="font-semibold">Calm —</span> Customers are guided without fear, frustration, or confusion
+              <span className="font-semibold">Calm -</span> Customers are guided without fear, frustration, or confusion
             </li>
             <li>
-              <span className="font-semibold">Consistency —</span> Daily checks, follow-ups, and no forgotten cases
+              <span className="font-semibold">Consistency -</span> Daily checks, follow-ups, and no forgotten cases
             </li>
           </ul>
         </motion.div>
@@ -108,7 +89,7 @@ export default function AboutPage() {
             I built this because founders shouldn&apos;t have to spend hours each week chasing couriers or
             calming anxious customers. Lost parcels, customs holds, returns, delays, and vague tracking
             updates can overwhelm small teams fast. This service exists to take that entire burden off
-            your plate — giving watch brands a predictable, reliable partner who handles shipping
+            your plate - giving watch brands a predictable, reliable partner who handles shipping
             problems quietly and professionally in the background.
           </p>
         </motion.div>
