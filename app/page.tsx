@@ -143,7 +143,7 @@ export default function LandingPage() {
               Built by a watch microbrand founder who shipped internatioanally.
             </p>
             <p className="md:hidden lg:block leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xxs:mt-2 md:mt-4 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
-              We handle everything that can go wrong <br />after your watches ship - from customs <br />seizures to lost parcels<span className="hidden md:inline"> alongside <br />operational work: filing claims, chasing <br />couriers, updating customers, and more.</span>
+              We handle everything that can go wrong <br />after your products ship - from customs <br />seizures to lost parcels<span className="hidden md:inline"> alongside <br />operational work: filing claims, chasing <br />couriers, updating customers, and more.</span>
             </p>
 
             {/* For medium viewports */}
