@@ -518,7 +518,7 @@ export default function LandingPage() {
             </p>
 
             <p className="mt-2 text-[14px] sm:text-[16px] md:text-[17px] italic">
-              Built by a watch microbrand founder who shipped worldwide.
+              Built by a watch microbrand founder (@romaro.official on instagram) who shipped worldwide.
             </p>
 
             <p className="mt-5 lg:w-[80%] text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed">

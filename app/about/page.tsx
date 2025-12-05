@@ -41,7 +41,7 @@ export default function AboutPage() {
 
           {/* Intro paragraph */}
           <p className="mt-8 text-[14px] sm:text-[15px] leading-7 text-[#222222]">
-            I started this after running my own watch microbrand, shipping small-batch
+            I started this after running my own watch microbrand (@romaro.official on instagram), shipping small-batch
             releases to customers around the world. I dealt with every problem you&apos;re facing now -
             delays with no explanation, customs holds, missing scans, damaged parcels, and anxious
             customers wanting answers I didn&apos;t have. After years of handling these issues myself,
