@@ -131,13 +131,13 @@ export default function LandingPage() {
                 Used by
                 <span className="hidden xs:inline-block">
                   &nbsp;independent
-                </span> watch brands worldwide
+                </span> brands worldwide
               </p>
             </div>
             <p className="font-semibold mt-2  xxs:mt-3 md:mt-3 text-white 
             text-[24px] xxs:text-[30px] text-center lg:text-left
             xs:text-[30px] md:text-[42px] md:tracking-[0px] lg:text-[39px] xl:text-[42px] -tracking-[1px]  leading-tight">
-              Managing the messy side <br />of watch<span className="hidden md:inline-block">-brand</span> shipping
+              Managing the messy side <br />of brand shipping
             </p>
             <p className="font-light hidden lg:block mt-2 text-[#e8e8e8] text-[12px] lg:text-[14px]">
               Built by a watch microbrand founder who shipped internatioanally.
@@ -148,7 +148,7 @@ export default function LandingPage() {
 
             {/* For medium viewports */}
             <p className="hidden md:block lg:hidden leading-[22px] md:leading-[26px] lg:leading-[30px] mt-1 xs:mt-2 text-[13px] md:text-[16px] text-center lg:text-left lg:text-[22px] lg:font-medium text-white/80 lg:text-white ">
-              We handle everything that can go wrong after your watches ship - from <br />customs seizures to lost parcels alongside operational work: filing <br />claims, chasing couriers, updating customers, and more.
+              We handle everything that can go wrong after your products ship - from <br />customs seizures to lost parcels alongside operational work: filing <br />claims, chasing couriers, updating customers, and more.
             </p>
           </div>
           <div className="my-7 md:hidden">

@@ -36,7 +36,7 @@ export default function AboutPage() {
             About the Founder
           </h2>
           <p className="mt-2 text-[13px] sm:text-[14px] md:text-[15px] text-[#5a5a5a]">
-            Built for watch brands by a founder who&apos;s lived the shipping chaos.
+            Built for brands by a founder who&apos;s lived the shipping chaos.
           </p>
 
           {/* Intro paragraph */}
@@ -89,7 +89,7 @@ export default function AboutPage() {
             I built this because founders shouldn&apos;t have to spend hours each week chasing couriers or
             calming anxious customers. Lost parcels, customs holds, returns, delays, and vague tracking
             updates can overwhelm small teams fast. This service exists to take that entire burden off
-            your plate - giving watch brands a predictable, reliable partner who handles shipping
+            your plate - giving brands a predictable, reliable partner who handles shipping
             problems quietly and professionally in the background.
           </p>
         </motion.div>

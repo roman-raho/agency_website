@@ -154,7 +154,7 @@ export default function HowItWorks() {
             flex items-center 
             w-[93%] mx-auto px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-black/17 transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px] text-center">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px] text-center">Customer Orders a Product</p>
                 </div>
 
                 {/* horizontal: left -> right (blue -> white) */}
