@@ -524,7 +524,6 @@ export default function LandingPage() {
             <p className="mt-5 lg:w-[80%] text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed">
               I built this after running a watch microbrand and shipping 100+ watches worldwide. Shipping these watches showed me how chaotic couriers can be - this is the system I wish I had.
             </p>
-
             <div className="mt-4">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -537,6 +536,15 @@ export default function LandingPage() {
                 </Link>
               </motion.div>
             </div>
+            <p className="mt-10 lg:w-[80%] text-[13px] sm:text-[14px] md:text-[15px] italic leading-relaxed">
+              My Watch Microbrand Account:
+            </p>
+
+            <div className="mb-10 mt-5">
+              <script src="https://elfsightcdn.com/platform.js" async></script>
+              <div className="elfsight-app-97aa44ed-a1bd-4843-b101-4b2c6f4afeb0" data-elfsight-app-lazy></div>
+            </div>
+
           </motion.div>
         </motion.div>
       </section>
