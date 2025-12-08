@@ -2,32 +2,32 @@
 
 import { useState } from "react";
 
-type PlanId = "starter" | "growth" | "scaling" | "enterprise";
+type PlanId = "core" | "scale" | "pro" | "enterprise";
 
 const PLANS = [
   {
-    id: "starter" as PlanId,
-    name: "Starter",
-    range: "0 - 25 orders/month",
-    price: "£69 per/month",
+    id: "core" as PlanId,
+    name: "Core",
+    range: "Up to 50 orders/month",
+    price: "£199 per/month",
     blurb:
-      "Perfect for microbrands testing the market. All features included as detailed below.",
+      "Perfect for serious early stage brands that are shipping internationally who want delivery issues handled quitly and professionally, without losing hours to couriers claims or anxious customers.",
   },
   {
-    id: "growth" as PlanId,
-    name: "Growth",
-    range: "25 - 60 orders/month",
-    price: "£139 per/month",
+    id: "scale" as PlanId,
+    name: "Scale",
+    range: "50 - 150 orders/month",
+    price: "£349 per/month",
     blurb:
-      "For growing brands that need consistent support as order volume increases and shipping complexity creeps in. All features included as detailed below.",
+      "For growing brands where shipping problems are now affecting reputation, cashflow and customer trust. We will take full control of post dispatch issues so that your team can stay focused on growth, not operations.",
   },
   {
-    id: "scaling" as PlanId,
-    name: "Scaling",
-    range: "60 - 120 orders/month",
-    price: "£249 per/month",
+    id: "pro" as PlanId,
+    name: "Pro",
+    range: "150 - 300 orders/month",
+    price: "£599-£899 per/month",
     blurb:
-      "Ideal for brands scaling aggressively. All features included as detailed below.",
+      "For fast scaling brands where shipping failure can become a high level risk. We take ownership of every case so your time stays focused on growth, not on low return admin.",
   },
   {
     id: "enterprise" as PlanId,
@@ -40,7 +40,7 @@ const PLANS = [
 ];
 
 export default function PriceDropdown() {
-  const [open, setOpen] = useState<PlanId | null>("starter");
+  const [open, setOpen] = useState<PlanId | null>("core");
 
   return (
     <div className="relative w-full mx-auto space-y-4 md:space-y-8 lg:space-y-9 text-white">
