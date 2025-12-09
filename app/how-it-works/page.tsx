@@ -204,7 +204,7 @@ export default function HowItWorks() {
             flex items-center opacity-0
             w-fit px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px]">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px]">Customer Orders a Product</p>
                 </div>
 
                 <div className="opacity-0 flex items-center justify-center text-[#001121]">
@@ -400,7 +400,7 @@ export default function HowItWorks() {
             flex items-center opacity-0
             w-fit px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px]">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px]">Customer Orders a Product</p>
                 </div>
               </div>
 
@@ -460,7 +460,7 @@ export default function HowItWorks() {
             flex items-center opacity-0
             w-fit px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px]">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px]">Customer Orders a Product</p>
                 </div>
 
                 <div className="opacity-0 flex items-center justify-center text-[#001121]">
@@ -656,7 +656,7 @@ export default function HowItWorks() {
             flex items-center opacity-0
             w-fit px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px]">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px]">Customer Orders a Product</p>
                 </div>
               </div>
 
@@ -716,7 +716,7 @@ export default function HowItWorks() {
             flex items-center opacity-0
             w-fit px-6 py-6 rounded-2xl bg-white/4 backdrop-blur-xl border border-white transition-all duration-300 overflow-hidden"
                 >
-                  <p className="font-semibold text-[24px]">Customer Orders a Watch</p>
+                  <p className="font-semibold text-[24px]">Customer Orders a Product</p>
                 </div>
 
                 <div className="opacity-0 flex items-center justify-center text-[#001121]">
@@ -864,7 +864,7 @@ export default function HowItWorks() {
           "
               >
                 <p className="font-semibold text-[20px] text-center">
-                  Customer Orders a Watch
+                  Customer Orders a Product
                 </p>
               </div>
 
